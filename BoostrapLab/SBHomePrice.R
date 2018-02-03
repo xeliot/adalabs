@@ -1,0 +1,10 @@
+x <- c(10, 15, 16, 18, 20, 25, 18, 15, 16, 21)
+mean(x)
+sd(x)/sqrt(length(x))
+set.seed(10165)
+size <- 10000
+bootstrap_resamples <- replicate(size, mean(sample(x, 10, replace=TRUE)))
+mean(bootstrap_resamples)
+sd(bootstrap_resamples)
+hist(bootstrap_resamples, main=paste("Hist of Boostrap Resamples (Size: ", size, ")"))
+quantile(bootstrap_resamples, c(0.025, 0.975))
